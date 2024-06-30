@@ -36,13 +36,14 @@ CMAKE_OPTIONS += \
 	-Dspeechd=OFF \
 	-Dice=OFF \
 	-Drnnoise=ON \
-        -Dtranslations=OFF \
+	-Dtranslations=OFF \
 	-Dbundled-celt=ON \
 	-Dbundle-qt-translations=OFF \
 	-Dbundled-speex=OFF \
 	-Dbundled-opus=OFF \
 	-Dbundled-rnnoise=OFF \
-	-Dupdate=OFF
+	-Dupdate=OFF \
+	-DBUILD_NUMBER="1.5.634"
 
 define Package/mumble/install
 	$(INSTALL_DIR) $(1)/usr/bin

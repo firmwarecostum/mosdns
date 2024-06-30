@@ -28,11 +28,8 @@ define Package/librnnoise/description
 	RNNoise is a noise suppression library based on a recurrent neural network.
 endef
 
-TARGET_CFLAGS += $(FPIC)
-
 CONFIGURE_ARGS += \
-	--enable-shared \
-	--enable-static \
+	--prefix=/usr \
 	--disable-examples \
 	--disable-doc
 

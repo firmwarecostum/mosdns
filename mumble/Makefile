@@ -22,7 +22,7 @@ define Package/mumble
 	CATEGORY:=Network
 	TITLE:=Mumble - Open Source voice-chat software
 	URL:=https://github.com/mumble-voip/mumble
-	DEPENDS:=+alsa-lib +libavahi-compat-libdnssd +libsndfile +libopenssl +libcap +poco +protobuf +librnnoise +libspeex +libspeexdsp +libopus
+	DEPENDS:=+alsa-lib +libavahi-compat-libdnssd +libsndfile +libopenssl +libcap +libx11 +libxi +poco +protobuf +librnnoise +libspeex +libspeexdsp +libopus
 endef
 
 define Package/mumble/description

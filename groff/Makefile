@@ -1,6 +1,6 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:= groff
+PKG_NAME:=groff
 PKG_VERSION:=1.23.0
 PKG_RELEASE:=1
 
@@ -19,7 +19,7 @@ HOST_BUILD_PARALLEL:=1
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/host-build.mk
 
-define Package/ groff
+define Package/groff
   SECTION:=lang
   CATEGORY:=Languages
   TITLE:=GNU troff text-formatting system
@@ -27,7 +27,7 @@ define Package/ groff
   BUILDONLY:=1
 endef
 
-define Package/ groff/description
+define Package/groff/description
   groff (GNU roff) is a typesetting system that reads plain text input files that include formatting commands to produce output in PostScript, PDF, HTML, or DVI formats or for display to a terminal.
   Formatting commands can be low-level typesetting primitives, macros from a supplied package, or user-defined macros. All three approaches can be combined.
 endef
@@ -37,4 +37,4 @@ HOST_CONFIGURE_ARGS += \
 	--without-x
 
 $(eval $(call HostBuild))
-$(eval $(call BuildPackage, groff))
+$(eval $(call BuildPackage,groff))

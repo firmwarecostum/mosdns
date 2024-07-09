@@ -12,6 +12,7 @@ PKG_MAINTAINER:=Esa Aprilia Salsabila <esaapriliasalsabila@gmail.com>
 PKG_LICENSE:=GPL-2.0 license
 PKG_LICENSE_FILES:=COPYING
 
+PKG_BUILD_DEPENDS:=groff/host
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
 

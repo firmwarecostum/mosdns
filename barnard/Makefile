@@ -36,6 +36,8 @@ define Package/barnard/description
   barnard is a terminal-based client for the Mumble voice chat software
 endef
 
+GO_PKG_BUILD_VARS+= GO111MODULE=off
+
 define Package/barnard/install
 	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
 	$(INSTALL_DIR) $(1)/usr/bin/

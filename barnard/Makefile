@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=barnard
-PKG_VERSION:=ae15ac7
+PKG_VERSION:=v0.0.0-20180508211606-ae15ac705468
 PKG_RELEASE:=1
 
 PKG_SOURCE_URL:=https://github.com/layeh/barnard.git

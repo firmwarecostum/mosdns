@@ -24,7 +24,7 @@ define Package/openal-soft
 	SECTION:=libs
 	CATEGORY:=Libraries
 	TITLE:=OpenAL Soft is a software implementation of the OpenAL 3D audio API.
-	DEPENDS:=+alsa-lib +libsndfile +portaudio +pulseaudio-daemon
+	DEPENDS:=+libatomic +libstdcpp +alsa-lib +libsndfile +portaudio +pulseaudio-daemon
 	URL:=https://github.com/kcat/openal-soft
 endef
 

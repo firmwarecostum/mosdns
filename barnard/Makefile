@@ -19,7 +19,6 @@ PKG_USE_MIPS16:=0
 PKG_BUILD_FLAGS:=no-mips16
 
 GO_PKG:=layeh.com/barnard
-GO_PKG_BUILD_PKG:=$(GO_PKG)
 
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
@@ -36,7 +35,7 @@ define Package/barnard/description
   barnard is a terminal-based client for the Mumble voice chat software
 endef
 
-GO_PKG_BUILD_VARS+= GO111MODULE=off
+GO_PKG_BUILD_VARS += GO111MODULE=auto
 
 define Package/barnard/install
 	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))

@@ -41,7 +41,8 @@ endef
 TARGET_CFLAGS += $(FPIC)
 
 CONFIGURE_ARGS += \
-	--disable-fftw \
+	--enable-static \
+	--disable-fftw
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)

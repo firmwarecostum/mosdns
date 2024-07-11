@@ -32,9 +32,9 @@ define Package/jack2/description
 	The activation system has been changed for a data flow model and lock-free programming techniques for graph access have been used to have a more dynamic and robust system.
 endef
 
-CONFIGURE_VARS:=CXX=$(TARGET_CXX) PKG_CONFIG_PATH="$(STAGING_DIR)/usr/lib/pkgconfig" $(MAKE_VARS)
+CONFIGURE_VARS:=CC="$(TARGET_CC)" CXX="$(TARGET_CXX)" CPPFLAGS="$(TARGET_CPPFLAGS)" CXXFLAGS="$(TARGET_CXXFLAGS)" LDFLAGS="$(TARGET_LDFLAGS)" PKG_CONFIG_PATH="$(STAGING_DIR)/usr/lib/pkgconfig" $(MAKE_VARS)
 CONFIGURE_CMD:=./waf
-CONFIGURE_ARGS:=CXX="$(TARGET_CXX)" CPPFLAGS="$(TARGET_CPPFLAGS)" CXXFLAGS="$(TARGET_CXXFLAGS)" LDFLAGS="$(TARGET_LDFLAGS)" configure --prefix=/usr --libdir=/usr/lib --dbus --alsa --classic
+CONFIGURE_ARGS:=configure --prefix=/usr --libdir=/usr/lib --dbus --alsa --classic
 
 define Build/Compile
 	cd $(PKG_BUILD_DIR); \

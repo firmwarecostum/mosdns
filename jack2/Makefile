@@ -21,7 +21,7 @@ define Package/jack2
 	SECTION:=libs
 	CATEGORY:=Libraries
 	TITLE:=The Jack Audio Connection Kit
-	DEPENDS:=+alsa-lib +libdbus +libexpat +libsamplerate +libsndfile +libncurses +libreadline
+	DEPENDS:=+alsa-lib +libopus +libdbus +libexpat +libsamplerate +libsndfile +libncurses +libreadline
 	URL:=https://github.com/jackaudio/jack2
 endef
 

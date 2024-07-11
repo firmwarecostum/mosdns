@@ -34,7 +34,7 @@ endef
 
 CONFIGURE_VARS:=CXX=$(TARGET_CXX) PKG_CONFIG_PATH="$(STAGING_DIR)/usr/lib/pkgconfig" $(MAKE_VARS)
 CONFIGURE_CMD:=./waf
-CONFIGURE_ARGS:=configure --prefix=/usr --libdir=/usr/lib --dbus --alsa --classic
+CONFIGURE_ARGS:=--prefix=/usr --libdir=/usr/lib --dbus --alsa --classic
 
 define Build/Compile
 	cd $(PKG_BUILD_DIR); \

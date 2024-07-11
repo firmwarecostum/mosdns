@@ -37,7 +37,7 @@ define Build/Compile
 	cd $(PKG_BUILD_DIR); \
 	./waf configure --prefix=/usr --libdir=/usr/lib --dbus --alsa --classic; \
 	./waf build; \
-	./waf install
+	./waf --destdir="$(PKG_INSTALL_DIR)" install
 endef
 
 define Build/InstallDev

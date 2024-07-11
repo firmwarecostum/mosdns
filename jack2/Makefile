@@ -31,14 +31,13 @@ define Package/jack2/description
 	The activation system has been changed for a data flow model and lock-free programming techniques for graph access have been used to have a more dynamic and robust system.
 endef
 
-CONFIGURE_CMD = ./waf
+#CONFIGURE_CMD = ./waf
 
 define Build/Compile
-	(cd $(PKG_BUILD_DIR); \
-		./waf install \
-		--jobs=$(shell nproc) \
-		--destdir="$(PKG_INSTALL_DIR)" \
-	)
+	cd $(PKG_BUILD_DIR); \
+	./waf configure --prefix=/usr --libdir=/usr/lib --dbus --alsa --classic; \
+	./waf build; \
+	./waf install
 endef
 
 define Build/InstallDev

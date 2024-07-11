@@ -12,6 +12,7 @@ PKG_MAINTAINER:=Esa Aprilia Salsabila <esaapriliasalsabila@gmail.com>
 PKG_LICENSE:=GPL-2.0 license
 PKG_LICENSE_FILES:=COPYING
 
+PKG_BUILD_PARALLEL:=0
 PKG_BUILD_DEPENDS:=python3/host
 PKG_INSTALL:=1
 

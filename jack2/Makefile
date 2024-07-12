@@ -38,7 +38,7 @@ CONFIGURE_ARGS:=configure --prefix=/usr --libdir=/usr/lib --dbus --alsa --classi
 
 define Build/Compile
 	cd $(PKG_BUILD_DIR); \
-	./waf
+	./waf --destdir="$(PKG_INSTALL_DIR)"
 endef
 
 define Build/InstallDev

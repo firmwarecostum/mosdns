@@ -18,7 +18,7 @@ index 0000000..df02ca6
 @@ -0,0 +1,17 @@
 +module layeh.com/barnard
 +
-+go 1.22.3
++go 1.21.7
 +
 +require (
 +	github.com/kennygrant/sanitize v1.2.4

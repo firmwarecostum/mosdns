@@ -23,6 +23,7 @@ define Package/vulkan-headers
 	SECTION:=libs
 	CATEGORY:=Libraries
 	TITLE:=Vulkan header files and API registry
+	DEPENDS:=+node +python3
 	URL:=https://github.com/KhronosGroup/Vulkan-Headers
 endef
 

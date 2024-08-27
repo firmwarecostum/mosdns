@@ -140,7 +140,7 @@ jobs:
           echo "make -j$(nproc) package/luci-app-mosdns/compile V=99"
           make -j$(nproc) package/luci-app-mosdns/compile V=99
           #make package/luci-app-mosdns/compile V=99
-          mv bin/packages/aarch64_generic/node/ ../
+          #mv bin/packages/aarch64_generic/node/ ../
           #mv bin/packages/aarch64_generic/mosdns/ ../
           #mv bin/packages/x86_64/mosdns/ ../
           #zip -jr mosdns_ipk.zip bin/packages/*/xorg/
@@ -152,6 +152,7 @@ jobs:
           rm .config .config.old
           cd ..
           #zip -r mosdns_ipk.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/target-aarch64_generic_musl/node-update-browserslist-db-1.0.16
+          zip -r mosdns_ipk.zip /home/runner/work/mosdns/mosdns/sdk/bin/
           echo "status=success" >> $GITHUB_OUTPUT
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
 
@@ -162,8 +163,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{needs.job_check.outputs.mosdns_version}}
-          #files: ${{ env.FIRMWARE }}/*.zip
-          files: ${{ env.FIRMWARE }}/node/*.ipk
+          files: ${{ env.FIRMWARE }}/*.zip && rm -R *.zip
+          #files: ${{ env.FIRMWARE }}/node/*.ipk
 
 
   job_auto_compile:

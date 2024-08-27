@@ -91,7 +91,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: sdk
-          key: openwrt-sdk-armsr-armv
+          key: openwrt-sdk-armsr-armv7
 
       - name: Initialization environment
         if: steps.cache-sdk.outputs.cache-hit != 'true'

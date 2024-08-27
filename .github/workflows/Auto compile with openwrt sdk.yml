@@ -113,7 +113,7 @@ jobs:
           ./scripts/feeds install luci-app-mosdns
           echo "CONFIG_PACKAGE_luci-app-mosdns=m" > .config
           ./scripts/feeds install -d n luci-app-mosdns
-          #make download V=99
+          make download V=99
 
       - name: Configure mosdns
         run: |

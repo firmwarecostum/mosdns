@@ -91,7 +91,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: sdk
-          key: openwrt-sdk-armsr-armv8
+          key: openwrt-sdk-armsr-armv7
 
       - name: Initialization environment
         if: steps.cache-sdk.outputs.cache-hit != 'true'
@@ -105,7 +105,7 @@ jobs:
           echo "src-git mosdns https://github.com/${{ env.mosdns }}.git;v5" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg2 feeds/packages/xorg.git" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg feeds/packages/xorg.git" >> feeds.conf.default
-          #echo "src-git node https://github.com/esaaprillia/node feeds/packages/node.git" >> feeds.conf.default
+          echo "src-git node https://github.com/esaaprillia/node feeds/packages/node.git" >> feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a -f -p mosdns
           ./scripts/feeds install -a -f -p xorg
@@ -113,7 +113,7 @@ jobs:
           ./scripts/feeds install luci-app-mosdns
           echo "CONFIG_PACKAGE_luci-app-mosdns=m" > .config
           ./scripts/feeds install -d n luci-app-mosdns
-          make download V=99
+          #make download V=99
 
       - name: Configure mosdns
         run: |
@@ -123,10 +123,10 @@ jobs:
           ./scripts/feeds install -a -f -p xorg
           ./scripts/feeds install -a -f -p node
           ./scripts/feeds install luci-app-mosdns
-          echo "CONFIG_ALL_NONSHARED=n" > .config
-          echo "CONFIG_ALL_KMODS=n" >> .config
-          echo "CONFIG_ALL=n" >> .config
-          echo "CONFIG_AUTOREMOVE=n" >> .config
+          #echo "CONFIG_ALL_NONSHARED=n" > .config
+          #echo "CONFIG_ALL_KMODS=n" >> .config
+          #echo "CONFIG_ALL=n" >> .config
+          #echo "CONFIG_AUTOREMOVE=n" >> .config
           echo "CONFIG_LUCI_LANG_zh_Hans=y" >> .config
 
           echo "CONFIG_PACKAGE_luci-app-mosdns=m" >> .config
@@ -271,20 +271,20 @@ jobs:
           ./scripts/feeds install luci-app-mosdns
 
 
-          echo "CONFIG_ALL_NONSHARED=n" > .config
-          echo "CONFIG_ALL_KMODS=n" >> .config
-          echo "CONFIG_ALL=n" >> .config
-          echo "CONFIG_AUTOREMOVE=n" >> .config
+          #echo "CONFIG_ALL_NONSHARED=n" > .config
+          #echo "CONFIG_ALL_KMODS=n" >> .config
+          #echo "CONFIG_ALL=n" >> .config
+          #echo "CONFIG_AUTOREMOVE=n" >> .config
           echo "CONFIG_PACKAGE_luci-app-mosdns=m" >> .config
 
           make defconfig
 
 
-      - name: ${{ matrix.platform }} download
-        run: |
-          cd sdk
-          make download V=99
-          find dl -size -1024c -exec ls -l {} \;
+#      - name: ${{ matrix.platform }} download
+#        run: |
+#          cd sdk
+#          make download V=99
+#          find dl -size -1024c -exec ls -l {} \;
 
       - name: ${{ matrix.platform }} compile
         id: compile
@@ -307,7 +307,7 @@ jobs:
           mkdir upload
 
           #zip -jr upload/mosdns_ipk_${{ matrix.platform }}.zip bin/packages/*/xorg/
-          zip -jr upload/mosdns_ipk_${{ matrix.platform }}.zip bin/packages/*/mosdns/*
+          zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip bin/
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/hostpkg/perl
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/target-aarch64_generic_musl/direwolf-1.7
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/target-aarch64_generic_musl/qtbase-everywhere-src-5.15.13/

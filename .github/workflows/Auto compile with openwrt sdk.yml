@@ -269,7 +269,7 @@ jobs:
           echo "src-git mosdns https://github.com/${{ env.mosdns }}.git;v5" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg2 feeds/packages/xorg.git" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg feeds/packages/xorg.git" >> feeds.conf.default
-          echo "src-git-full python https://github.com/esaaprillia/packages.git;cmake" >> feeds.conf.default
+          echo "src-git-full python https://github.com/esaaprillia/packages" >> feeds.conf.default
 
 
           ./scripts/feeds update -a
@@ -280,7 +280,7 @@ jobs:
           #echo "CONFIG_ALL_NONSHARED=n" > .config
           #echo "CONFIG_ALL_KMODS=n" >> .config
           #echo "CONFIG_ALL=n" >> .config
-          echo "CONFIG_AUTOREMOVE=n" >> .config
+          #echo "CONFIG_AUTOREMOVE=n" >> .config
           echo "CONFIG_PACKAGE_luci-app-mosdns=m" >> .config
 
           make defconfig

@@ -283,10 +283,7 @@ jobs:
 
 
           ./scripts/feeds update -a
-          ./scripts/feeds install -a -f -p python
           ./scripts/feeds install -a -f -p yfi
-          ./scripts/feeds install -a -f -p xorg
-          ./scripts/feeds install luci-app-mosdns
 
           #echo "CONFIG_ALL_NONSHARED=n" > .config
           #echo "CONFIG_ALL_KMODS=n" >> .config

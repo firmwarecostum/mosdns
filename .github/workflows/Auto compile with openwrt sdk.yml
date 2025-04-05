@@ -283,7 +283,9 @@ jobs:
 
 
           ./scripts/feeds update -a
+          rm -rf feeds/packages/utils/mariadb
           ./scripts/feeds install -a -f -p yfi
+          ./scripts/feeds install luci-app-mosdns
 
           #echo "CONFIG_ALL_NONSHARED=n" > .config
           #echo "CONFIG_ALL_KMODS=n" >> .config

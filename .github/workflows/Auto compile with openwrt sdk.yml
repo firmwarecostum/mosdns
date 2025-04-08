@@ -266,7 +266,7 @@ jobs:
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
           mkdir sdk && tar -xf $file_name -C ./sdk --strip-components=1
-          wget -O /sdk/include/prereq-build.mk "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/prereq-build.mk"
+          wget -O sdk/include/prereq-build.mk "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/prereq-build.mk"
           cd sdk
 
       - name: SSH connection to Actions

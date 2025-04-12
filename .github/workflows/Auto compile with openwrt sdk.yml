@@ -24,7 +24,7 @@ env:
 jobs:
   job_check:
     name: Check Version
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     outputs:
       mosdns_version: ${{ steps.check_version.outputs.latest_version }}
       has_update: ${{ steps.check_version.outputs.has_update }}
@@ -74,7 +74,7 @@ jobs:
     name: Build mosdns
     needs: job_check
     if: needs.job_check.outputs.has_update == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Install packages
         run: |
@@ -169,7 +169,7 @@ jobs:
   job_auto_compile:
     if: needs.job_check.outputs.has_update == 'true'
     needs: job_check
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     name: build (${{ matrix.platform }})
     strategy:
       fail-fast: false
@@ -198,6 +198,9 @@ jobs:
 
           - platform: aarch64_cortex-a53
             url_sdk: https://downloads.openwrt.org/releases/21.02.7/targets/mvebu/cortexa53/openwrt-sdk-21.02.7-mvebu-cortexa53_gcc-8.4.0_musl.Linux-x86_64.tar.xz
+            
+          - platform: aarch64_cortex-a53-21
+            url_sdk: https://downloads.openwrt.org/releases/21.02.7/targets/armvirt/64/openwrt-sdk-21.02.7-armvirt-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
 
           - platform: aarch64_cortex-a53-22
             url_sdk: https://downloads.openwrt.org/releases/22.03.6/targets/armvirt/64/openwrt-sdk-22.03.6-armvirt-64_gcc-11.2.0_musl.Linux-x86_64.tar.xz
@@ -275,8 +278,8 @@ jobs:
           echo "src-git mosdns https://github.com/${{ env.mosdns }}.git;v5" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg2 feeds/packages/xorg.git" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg feeds/packages/xorg.git" >> feeds.conf.default
-          echo "src-git-full python https://github.com/esaaprillia/packages4" >> feeds.conf.default
-          #echo "src-git-full yfi https://github.com/esaaprillia/yfi" >> feeds.conf.default
+          #echo "src-git-full python https://github.com/esaaprillia/packages4" >> feeds.conf.default
+          echo "src-git-full yfi https://github.com/esaaprillia/yfi" >> feeds.conf.default
 
 
           ./scripts/feeds update -a

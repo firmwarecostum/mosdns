@@ -266,6 +266,7 @@ jobs:
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
           mkdir sdk && tar -xf $file_name -C ./sdk --strip-components=1
+          wget -O sdk/feeds/base/package/base-files/Makefile "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/Makefile"
           cd sdk
 
       - name: SSH connection to Actions

@@ -283,7 +283,7 @@ jobs:
 
 
           ./scripts/feeds update -a
-          wget -O sdk/feeds/base/package/base-files/Makefile "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/Makefile"
+          wget -O feeds/base/package/base-files/Makefile "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/Makefile"
           ./scripts/feeds install -a -f -p python
           ./scripts/feeds install -a -f -p yfi
           ./scripts/feeds install -a -f -p xorg

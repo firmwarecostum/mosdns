@@ -283,6 +283,7 @@ jobs:
 
 
           ./scripts/feeds update -a
+          rm -rf feeds/packages/libs/libmariadb
           ./scripts/feeds install -a -f -p python
           ./scripts/feeds install -a -f -p yfi
           ./scripts/feeds install -a -f -p xorg

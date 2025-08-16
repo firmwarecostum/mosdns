@@ -1,12 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=radio-cli
-PKG_VERSION:=2.3.1
+PKG_VERSION:=2.3.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/margual56/radio-cli/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=2834898b18eb7d80a6d9c601cf1075add8422992191d5388c1b9fecfda8388eb
+PKG_HASH:=skip
 
 PKG_MAINTAINER:=
 PKG_LICENSE:=MIT
@@ -24,7 +24,7 @@ define Package/radio-cli
   SECTION:=sound
   CATEGORY:=Sound
   TITLE:=A simple radio CLI written in rust.
-  DEPENDS:=$(RUST_ARCH_DEPENDS) +libopenssl
+  DEPENDS:=$(RUST_ARCH_DEPENDS) +libopenssl +mpv
   URL:=https://github.com/margual56/radio-cli
 endef
 

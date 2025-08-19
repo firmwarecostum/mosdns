@@ -7,7 +7,7 @@ PKG_LICENSE:=GPL-2.0
 
 PKG_MAINTAINER:=
 
-PKG_BUILD_DEPENDS:=perl-data-section/host
+PKG_BUILD_DEPENDS:=perl-params-classify/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 PKG_BUILD_PARALLEL:=1
 
@@ -39,8 +39,8 @@ define Build/Compile
 endef
 
 define Package/luci-app-mosdns/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) /home/runner/work/mosdns/mosdns/sdk/build_dir/hostpkg/perl/Data-Section-0.200008/Makefile $(1)/usr/bin/
+	#$(INSTALL_DIR) $(1)/usr/bin
+	#$(CP) /home/runner/work/mosdns/mosdns/sdk/build_dir/hostpkg/perl/Data-Section-0.200008/Makefile $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,luci-app-mosdns))

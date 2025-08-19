@@ -40,7 +40,7 @@ endef
 
 define Package/luci-app-mosdns/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(HOST_BUILD_DIR)/Data-Section $(1)/usr/bin/
+	$(CP) $(HOST_BUILD_DIR)/Data-Section-0.200008 $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,luci-app-mosdns))

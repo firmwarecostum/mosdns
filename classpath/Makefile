@@ -54,6 +54,9 @@ define Download/antlr
 endef
 $(eval $(call Download,antlr))
 
+CONFIGURE_VARS += \
+	JAVAC="/usr/lib/jvm/java-8-openjdk-amd64/bin/javac"
+
 EXTRA_CFLAGS += -Wno-error=implicit-fallthrough
 CONFIGURE_ARGS += \
 	--with-gmp="$(STAGING_DIR)/usr" \

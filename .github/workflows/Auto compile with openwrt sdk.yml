@@ -182,7 +182,7 @@ jobs:
             url_sdk: https://downloads.openwrt.org/snapshots/targets/armsr/armv8/openwrt-sdk-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
             
           - platform: ARMSR openwrt-sdk-24.10.2
-            url_sdk: https://downloads.openwrt.org/releases/24.10.2/targets/armsr/armv8/openwrt-sdk-24.10.2-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+            url_sdk: http://147.139.242.213/gg/bin/targets/armsr/armv8/openwrt-sdk-24.10.2-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
             
           - platform: PI5 openwrt-sdk-24.10.2
             url_sdk: https://downloads.openwrt.org/releases/24.10.2/targets/bcm27xx/bcm2712/openwrt-sdk-24.10.2-bcm27xx-bcm2712_gcc-13.3.0_musl.Linux-x86_64.tar.zst

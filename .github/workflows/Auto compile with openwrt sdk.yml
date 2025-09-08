@@ -232,6 +232,9 @@ jobs:
           #echo "CONFIG_AUTOREMOVE=n" >> .config
           echo "CONFIG_PACKAGE_luci-app-mosdns=m" >> .config
 
+          # Set Rust build arg llvm.download-ci-llvm to false.
+          sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/python/lang/rust/Makefile
+
           make defconfig
 
 

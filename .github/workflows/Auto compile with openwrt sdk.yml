@@ -182,7 +182,7 @@ jobs:
             url_sdk: https://downloads.openwrt.org/snapshots/targets/armsr/armv8/openwrt-sdk-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
             
           - platform: ARMSR openwrt-sdk-24.10.3
-            url_sdk: https://github.com/predators46/amlogic-s9xxx-openwrt/releases/download/OpenWrt_imagebuilder__2025.09/openwrt-sdk-24.10.3-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zstnux-x86_64.tar.zst
+            url_sdk: https://github.com/predators46/amlogic-s9xxx-openwrt/releases/download/OpenWrt_imagebuilder__2025.09/openwrt-sdk-24.10.3-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
             
           - platform: PI5 openwrt-sdk-24.10.3
             url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/bcm27xx/bcm2712/openwrt-sdk-24.10.3-bcm27xx-bcm2712_gcc-13.3.0_musl.Linux-x86_64.tar.zst

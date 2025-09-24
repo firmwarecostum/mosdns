@@ -7,7 +7,7 @@ PKG_LICENSE:=GPL-2.0
 
 PKG_MAINTAINER:=
 
-PKG_BUILD_DEPENDS:=libressl/host python3/host
+PKG_BUILD_DEPENDS:=openssl/host python3/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 PKG_BUILD_PARALLEL:=1
 

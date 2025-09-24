@@ -186,6 +186,9 @@ jobs:
             
           - platform: PI5 openwrt-sdk-24.10.3
             url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/bcm27xx/bcm2712/openwrt-sdk-24.10.3-bcm27xx-bcm2712_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+            
+          - platform: mediatek-filogic openwrt-sdk-24.10.3
+            url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/mediatek/filogic/openwrt-sdk-24.10.3-mediatek-filogic_gcc-13.3.0_musl.Linux-x86_64.tar.zst
 
     steps:
       - name: Initialization ${{ matrix.platform }} compile environment

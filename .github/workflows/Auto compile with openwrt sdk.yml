@@ -175,20 +175,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - platform: openwrt-sdk-24.10.3-x86_64
-            url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/x86/64/openwrt-sdk-24.10.3-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
-
-          - platform: aarch64_generic-snapshots
-            url_sdk: https://downloads.openwrt.org/snapshots/targets/armsr/armv8/openwrt-sdk-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
-            
-          - platform: ARMSR openwrt-sdk-24.10.3
-            url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/armsr/armv8/openwrt-sdk-24.10.3-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
-            
-          - platform: PI5 openwrt-sdk-24.10.3
-            url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/bcm27xx/bcm2712/openwrt-sdk-24.10.3-bcm27xx-bcm2712_gcc-13.3.0_musl.Linux-x86_64.tar.zst
-            
-          - platform: mediatek-filogic openwrt-sdk-24.10.3
-            url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/mediatek/filogic/openwrt-sdk-24.10.3-mediatek-filogic_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+          - platform: openwrt-sdk-21.02.7-armvirt
+            url_sdk: https://downloads.openwrt.org/releases/21.02.7/targets/armvirt/64/openwrt-sdk-21.02.7-armvirt-64_gcc-8.4.0_musl.Linux-x86_64.tar.xz
 
     steps:
       - name: Initialization ${{ matrix.platform }} compile environment
@@ -206,7 +194,7 @@ jobs:
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
           mkdir sdk && tar -xf $file_name -C ./sdk --strip-components=1
-          wget -O sdk/include/host-build.mk "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/host-build.mk"
+          #wget -O sdk/include/host-build.mk "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/host-build.mk"
           cd sdk
 
       - name: SSH connection to Actions
@@ -236,7 +224,7 @@ jobs:
           echo "CONFIG_PACKAGE_luci-app-mosdns=m" >> .config
 
           # Set Rust build arg llvm.download-ci-llvm to false.
-          sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/python/lang/rust/Makefile
+          #sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/python/lang/rust/Makefile
 
           make defconfig
 

@@ -7,7 +7,7 @@ PKG_LICENSE:=GPL-2.0
 
 PKG_MAINTAINER:=
 
-PKG_BUILD_DEPENDS:=nss/host
+PKG_BUILD_DEPENDS:=qt
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 PKG_BUILD_PARALLEL:=1
 
@@ -21,7 +21,7 @@ define Package/luci-app-mosdns
   #DEPENDS:=+mumble +alsa-lib +celt +libavahi-compat-libdnssd +libsndfile +libopenssl +libcap +libx11 +libxi +qt5-Concurrent +qt5-Core +qt5-DBus +qt5-Gui +qt5-Network +qt5-PrintSupport +qt5-Sql +qt5-Test +qt5-Widgets +qt5-Xml +poco-all +protobuf +librnnoise +libspeex +libspeexdsp +libopus
   #DEPENDS:=+alsa-lib +celt +libsndfile +libopenssl +libcap +libx11 +libxi +qt5-Concurrent +qt5-Core +qt5-DBus +qt5-Gui +qt5-Network +qt5-PrintSupport +qt5-Sql +qt5-Test +qt5-Widgets +qt5-Xml +poco-all +libmesa +librnnoise +libspeex +libspeexdsp +libopus
   #DEPENDS:=python3-hass-home-assistant-frontend  python3-async-upnp-client python3-hassil python3-aiodhcpwatcher python3-pyserial python3-aiodiscover python3-pymicro-vad python3-pyspeex-noise python3-ha-ffmpeg python3-av python3-go2rtc-client
-  DEPENDS:=zlib
+  #DEPENDS:=zlib
   TITLE:=Tools Inject xderm-mini
 endef
 
@@ -30,16 +30,6 @@ define Package/luci-app-mosdns/description
 endef
 
 define Build/Prepare
-	$(call Build/Prepare/Default)
-	$(RM) $(STAGING_DIR)/usr/lib/libz.a
-	$(LN) $(STAGING_DIR_HOST)/lib/libz.a $(STAGING_DIR)/usr/lib/libz.a
-	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libnspr4.so $(STAGING_DIR)/usr/lib/libnspr4.a
-	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libplc4.so $(STAGING_DIR)/usr/lib/libplc4.a
-	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libplds4.so $(STAGING_DIR)/usr/lib/libplds4.a
-	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libnss3.so $(STAGING_DIR)/usr/lib/libnss3.a
-	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libnssutil3.so $(STAGING_DIR)/usr/lib/libnssutil3.a
-	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libsmime3.so $(STAGING_DIR)/usr/lib/libsmime3.a
-	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libsoftokn3.so $(STAGING_DIR)/usr/lib/libsoftokn3.a
 endef
 
 define Build/Configure

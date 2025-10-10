@@ -32,9 +32,14 @@ endef
 define Build/Prepare
 	$(call Build/Prepare/Default)
 	$(RM) $(STAGING_DIR)/usr/lib/libz.a
-	$(CP) $(STAGING_DIR_HOST)/lib/libz.a $(STAGING_DIR)/usr/lib/
-	$(CP) $(STAGING_DIR_HOSTPKG)/lib/{libnspr4.a,libplc4.a,libplds4.a} $(STAGING_DIR)/usr/lib/
-	$(CP) $(STAGING_DIR_HOSTPKG)/lib/{libfreebl3.a,libnss3.a,libnssckbi.a,libnssutil3.a,libsmime3.a,libsoftokn3.a,libssl3.a} $(STAGING_DIR)/usr/lib/
+	$(LN) $(STAGING_DIR_HOST)/lib/libz.a $(STAGING_DIR)/usr/lib/libz.a
+	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libnspr4.so $(STAGING_DIR)/usr/lib/libnspr4.a
+	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libplc4.so $(STAGING_DIR)/usr/lib/libplc4.a
+	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libplds4.so $(STAGING_DIR)/usr/lib/libplds4.a
+	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libnss3.so $(STAGING_DIR)/usr/lib/libnss3.a
+	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libnssutil3.so $(STAGING_DIR)/usr/lib/libnssutil3.a
+	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libsmime3.so $(STAGING_DIR)/usr/lib/libsmime3.a
+	$(LN) $(STAGING_DIR_HOSTPKG)/lib/libsoftokn3.so $(STAGING_DIR)/usr/lib/libsoftokn3.a
 endef
 
 define Build/Configure

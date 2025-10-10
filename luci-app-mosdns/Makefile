@@ -30,6 +30,10 @@ define Package/luci-app-mosdns/description
 endef
 
 define Build/Prepare
+	$(call Build/Prepare/Default)
+	$(CP) $(STAGING_DIR_HOST)/lib/zlib.a* $(STAGING_DIR)/usr/lib/
+	$(CP) $(STAGING_DIR_HOSTPKG)/bin/{libnspr4.a,libplc4.a,libplds4.a} $(STAGING_DIR)/usr/lib/
+	$(CP) $(STAGING_DIR_HOSTPKG)/lib/{libfreebl3.a,libnss3.a,libnssckbi.a,libnssutil3.a,libsmime3.a,libsoftokn3.a,libssl3.a} $(STAGING_DIR)/usr/lib/
 endef
 
 define Build/Configure

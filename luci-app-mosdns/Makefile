@@ -7,7 +7,7 @@ PKG_LICENSE:=GPL-2.0
 
 PKG_MAINTAINER:=
 
-PKG_BUILD_DEPENDS:=python-pandas/host
+#PKG_BUILD_DEPENDS:=python-pandas/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 PKG_BUILD_PARALLEL:=1
 
@@ -21,7 +21,7 @@ define Package/luci-app-mosdns
   #DEPENDS:=+mumble +alsa-lib +celt +libavahi-compat-libdnssd +libsndfile +libopenssl +libcap +libx11 +libxi +qt5-Concurrent +qt5-Core +qt5-DBus +qt5-Gui +qt5-Network +qt5-PrintSupport +qt5-Sql +qt5-Test +qt5-Widgets +qt5-Xml +poco-all +protobuf +librnnoise +libspeex +libspeexdsp +libopus
   #DEPENDS:=+alsa-lib +celt +libsndfile +libopenssl +libcap +libx11 +libxi +qt5-Concurrent +qt5-Core +qt5-DBus +qt5-Gui +qt5-Network +qt5-PrintSupport +qt5-Sql +qt5-Test +qt5-Widgets +qt5-Xml +poco-all +libmesa +librnnoise +libspeex +libspeexdsp +libopus
   #DEPENDS:=python3-hass-home-assistant-frontend  python3-async-upnp-client python3-hassil python3-aiodhcpwatcher python3-pyserial python3-aiodiscover python3-pymicro-vad python3-pyspeex-noise python3-ha-ffmpeg python3-av python3-go2rtc-client
-  #DEPENDS:=+python3-pyserial +python3-protobuf +python3-tabulate +python3-requests +python3-yaml +python3-pypubsub +python3-bleak +python3-packaging +python3-argcomplete +python3-pyqrcode +python3-dotmap +python3-print-color +python3-dash +python3-pytap2 +python3-dash-bootstrap-components +python3-pandas +python3-pandas-stubs +python3-wcwidth
+  DEPENDS:=+python3-pyserial +python3-protobuf +python3-tabulate +python3-requests +python3-yaml +python3-pypubsub +python3-bleak +python3-packaging +python3-argcomplete +python3-pyqrcode +python3-dotmap +python3-print-color +python3-dash +python3-pytap2 +python3-dash-bootstrap-components +python3-pandas +python3-pandas-stubs +python3-wcwidth
   TITLE:=Tools Inject xderm-mini
 endef
 

@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tunein-cli
-PKG_VERSION:=0.2.6
+PKG_VERSION:=0.4.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
@@ -24,7 +24,7 @@ define Package/tunein-cli
   SECTION:=sound
   CATEGORY:=Sound
   TITLE:=Browse and listen to thousands of radio stations across the globe right from your terminal
-  DEPENDS:=$(RUST_ARCH_DEPENDS) +alsa-lib +libopenssl +protobuf
+  DEPENDS:=$(RUST_ARCH_DEPENDS) +alsa-lib +libopenssl +protobuf +libdbus
   URL:=https://github.com/tsirysndr/tunein-cli
 endef
 

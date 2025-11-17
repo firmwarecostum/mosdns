@@ -1,14 +1,3 @@
-From d5e34eb504a14d8bac648728aea218ad391423af Mon Sep 17 00:00:00 2001
-From: firmwarecostum <145313986+firmwarecostum@users.noreply.github.com>
-Date: Mon, 17 Nov 2025 18:51:50 +0800
-Subject: [PATCH] Update daemon.c
-
----
- libax25/lib/ax25/daemon.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/libax25/lib/ax25/daemon.c b/libax25/lib/ax25/daemon.c
-index dcc5669..701acf9 100644
 --- a/libax25/lib/ax25/daemon.c
 +++ b/libax25/lib/ax25/daemon.c
 @@ -4,6 +4,7 @@

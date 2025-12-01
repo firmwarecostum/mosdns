@@ -57,7 +57,7 @@ jobs:
           echo "![](https://img.shields.io/github/downloads/${{ env.mosdns }}/${{steps.check_version.outputs.latest_version}}/total?style=flat-square)" >> release.txt
           echo "### mosdns Info" >> release.txt
           echo "**:minidisc: mosdns Version: ${{steps.check_version.outputs.latest_version}}**" >> release.txt
-          echo "**:gear: OpenWrt SDK Version: 21.02.7**" >> release.txt
+          echo "**:gear: OpenWrt SDK Version: 24.10.4**" >> release.txt
           touch release.txt
 
       - name: Generate new tag & release
@@ -96,7 +96,7 @@ jobs:
       - name: Initialization environment
         if: steps.cache-sdk.outputs.cache-hit != 'true'
         env:
-          url_sdk: https://downloads.openwrt.org/releases/23.05.3/targets/armsr/armv8/openwrt-sdk-23.05.3-armsr-armv8_gcc-12.3.0_musl.Linux-x86_64.tar.xz
+          url_sdk: https://github.com/predators46/amlogic-s9xxx-openwrt/releases/download/OpenWrt_imagebuilder_openwrt_24.10.4_2025.12/openwrt-sdk-24.10.4-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
         run: |
           wget ${{ env.url_sdk }}
           file_name=$(echo ${{env.url_sdk}} | awk -F/ '{print $NF}')
@@ -175,17 +175,17 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - platform: openwrt-sdk-24.10.3-x86_64
-            url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/x86/64/openwrt-sdk-24.10.3-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+          - platform: openwrt-sdk-24.10.4-x86_64
+            url_sdk: https://downloads.openwrt.org/releases/24.10.4/targets/x86/64/openwrt-sdk-24.10.4-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
 
           - platform: aarch64_generic-snapshots
             url_sdk: https://downloads.openwrt.org/snapshots/targets/armsr/armv8/openwrt-sdk-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
             
-          - platform: ARMSR openwrt-sdk-24.10.3
-            url_sdk: https://github.com/predators46/amlogic-s9xxx-openwrt/releases/download/OpenWrt_imagebuilder__2025.09/openwrt-sdk-24.10.3-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+          - platform: ARMSR openwrt-sdk-24.10.4
+            url_sdk: https://github.com/predators46/amlogic-s9xxx-openwrt/releases/download/OpenWrt_imagebuilder_openwrt_24.10.4_2025.12/openwrt-sdk-24.10.4-armsr-armv8_gcc-13.3.0_musl.Linux-x86_64.tar.zst
             
-          - platform: PI5 openwrt-sdk-24.10.3
-            url_sdk: https://downloads.openwrt.org/releases/24.10.3/targets/bcm27xx/bcm2712/openwrt-sdk-24.10.3-bcm27xx-bcm2712_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+          - platform: PI5 openwrt-sdk-24.10.4
+            url_sdk: https://downloads.openwrt.org/releases/24.10.4/targets/bcm27xx/bcm2712/openwrt-sdk-24.10.4-bcm27xx-bcm2712_gcc-13.3.0_musl.Linux-x86_64.tar.zst
 
     steps:
       - name: Initialization ${{ matrix.platform }} compile environment
@@ -288,7 +288,7 @@ jobs:
           echo "![](https://img.shields.io/github/downloads/${{ env.mosdns }}/${{needs.job_check.outputs.mosdns_version}}/total?style=flat-square)" >> release.txt
           echo "### mosdns Info" >> release.txt
           echo "**:minidisc: mosdns Version: ${{needs.job_check.outputs.mosdns_version}}**" >> release.txt
-          echo "**:gear: OpenWrt SDK Version: 21.02.7**" >> release.txt
+          echo "**:gear: OpenWrt SDK Version: 24.10.4**" >> release.txt
 
           echo "### Packages Version" >> release.txt
           echo "**package name**|**package version**" >> release.txt

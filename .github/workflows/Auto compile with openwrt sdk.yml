@@ -24,7 +24,7 @@ env:
 jobs:
   job_check:
     name: Check Version
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       mosdns_version: ${{ steps.check_version.outputs.latest_version }}
       has_update: ${{ steps.check_version.outputs.has_update }}
@@ -74,11 +74,10 @@ jobs:
     name: Build mosdns
     needs: job_check
     if: needs.job_check.outputs.has_update == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Install packages
         run: |
-          docker rmi `docker images -q`
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
           echo "Install packages"
           sudo -E apt-get -qq update
@@ -169,7 +168,7 @@ jobs:
   job_auto_compile:
     if: needs.job_check.outputs.has_update == 'true'
     needs: job_check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: build (${{ matrix.platform }})
     strategy:
       fail-fast: false
@@ -190,7 +189,6 @@ jobs:
     steps:
       - name: Initialization ${{ matrix.platform }} compile environment
         run: |
-          docker rmi `docker images -q`
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
           echo "install packages!!!!!!"
           sudo -E apt-get -qq update

@@ -6,7 +6,7 @@ PKG_RELEASE:=1
 PKG_LICENSE:=GPL-2.0
 
 PKG_MAINTAINER:=
-PKG_BUILD_DEPENDS:=ffmpeg
+PKG_BUILD_DEPENDS:=libvpl
 #PKG_BUILD_DEPENDS:=python3/host python-build/host python-installer/host python-hatchling/host python-hatch-vcs/host python-zstandard/host python-httpx/host python-click/host python-userpath/host python-shellingham/host python-rich/host python-tomlkit/host python-virtualenv/host python-tomli-w/host python-jupyter-packaging/host python-platformdirs/host python-keyring/host python-hyperlink/host python-pexpect/host
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 PKG_BUILD_PARALLEL:=1
@@ -39,8 +39,8 @@ define Build/Compile
 endef
 
 define Package/luci-app-mosdns/install
-	#$(INSTALL_DIR) $(1)/usr/lib
-	#$(CP) /home/runner/work/mosdns/mosdns/sdk/staging_dir/target-aarch64_generic_musl/usr/lib/cmake/glslang $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) /home/runner/work/mosdns/mosdns/sdk/staging_dir/target-aarch64_generic_musl/usr/lib/pkgconfig/vpl.pc $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,luci-app-mosdns))

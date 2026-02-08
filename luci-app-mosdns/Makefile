@@ -6,7 +6,7 @@ PKG_RELEASE:=1
 PKG_LICENSE:=GPL-2.0
 
 PKG_MAINTAINER:=
-PKG_BUILD_DEPENDS:=perl-termreadkey/host
+PKG_BUILD_DEPENDS:=perl-termreadkey
 #PKG_BUILD_DEPENDS:=perl-archive-zip perl-crypt-eksblowfish perl-data-dump perl-data-entropy perl-data-uuid perl-date-manip perl-datetime perl-dbd-mysql perl-device-serialport perl-file-slurp perl-image-info perl-io-interface perl-io-socket-multicast perl-json-maybexs perl-libwww perl-lwp-protocol-https perl-mime-lite perl-mime-tools perl-net-sftp-foreign perl-number-bytes-human perl-php-serialization perl-soap-wsdl perl-sys-cpu perl-sys-meminfo perl-sys-mmap perl-uri-encode perl-xml-libxml perl-xml-parser
 #PKG_BUILD_DEPENDS:=perl-sys-mmap/host perl-dbi/host perl-date-manip/host perl-libwww/host
 #PKG_BUILD_DEPENDS:=python3/host python-build/host python-installer/host python-hatchling/host python-hatch-vcs/host python-zstandard/host python-httpx/host python-click/host python-userpath/host python-shellingham/host python-rich/host python-tomlkit/host python-virtualenv/host python-tomli-w/host python-jupyter-packaging/host python-platformdirs/host python-keyring/host python-hyperlink/host python-pexpect/host

@@ -205,14 +205,12 @@ jobs:
           ln -s /usr/bin/gfortran /home/runner/work/mosdns/mosdns/sdk/staging_dir/host/bin/
           cd sdk
 
-      - name: SSH connection to Actions
-        uses: mxschmitt/action-tmate@v3.13
-        if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-
       - name: ${{ matrix.platform }} feeds configuration packages
         run: |
           cd sdk
-          sed -i 's|https://git.openwrt.org|git://git.openwrt.org|g' feeds.conf.default
+          #sed -i 's|https://git.openwrt.org|git://git.openwrt.org|g' feeds.conf.default
+          rm feeds.conf.default
+          wget https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/feeds.conf.default
           echo "src-git mosdns https://github.com/${{ env.mosdns }}.git;v5" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg2 feeds/packages/xorg.git" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg feeds/packages/xorg.git" >> feeds.conf.default

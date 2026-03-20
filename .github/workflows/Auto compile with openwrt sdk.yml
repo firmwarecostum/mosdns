@@ -214,7 +214,7 @@ jobs:
           cd sdk
           #sed -i 's|https://git.openwrt.org|git://git.openwrt.org|g' feeds.conf.default
           rm feeds.conf.default
-          wget https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/25.12.1/feeds.conf.default
+          wget https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/25.12.0/feeds.conf.default
           echo "src-git mosdns https://github.com/${{ env.mosdns }}.git;v5" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg2 feeds/packages/xorg.git" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg feeds/packages/xorg.git" >> feeds.conf.default

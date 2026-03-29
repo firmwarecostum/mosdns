@@ -24,7 +24,7 @@ define Package/libax25
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=set of functions making it easier to write hamradio programs
-	DEPENDS:=+libstdcpp +zlib
+	DEPENDS:=+libstdcpp +zlib +kmod-ax25
 	URL:=https://github.com/ve7fet/linuxax25
 endef
 

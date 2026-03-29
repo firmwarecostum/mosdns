@@ -1,10 +1,10 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=ax25tools
-PKG_VERSION:=1.2.2
+PKG_VERSION:=1.1.0
 PKG_RELEASE:=1
 
-PKG_SOURCE:=libax25-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=ax25tools-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/ve7fet/linuxax25/archive/refs/tags/
 PKG_HASH:=skip
 
@@ -12,7 +12,7 @@ PKG_MAINTAINER:=Esa Aprilia Salsabila <esaapriliasalsabila@gmail.com>
 PKG_LICENSE:=LGPL-2.1-or-later
 PKG_LICENSE_FILES:=COPYING
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/linuxax25-libax25-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/linuxax25-ax25tools-$(PKG_VERSION)
 
 PKG_BUILD_PARALLEL:=1
 PKG_FIXUP:=autoreconf

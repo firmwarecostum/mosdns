@@ -44,20 +44,14 @@ CONFIGURE_ARGS += \
 	--sysconfdir=/etc
 
 define Package/ax25tools/install
-	$(INSTALL_DIR) \
-	  $(1)/etc \
-	  $(1)/usr/bin \
-	  $(1)/usr/sbin
-
-	$(CP) \
-	  $(PKG_INSTALL_DIR)/etc/ax25 \
-	  $(1)/etc/
-	$(CP) \
-	  $(PKG_INSTALL_DIR)/usr/bin/* \
-	  $(1)/usr/bin/
-	$(CP) \
-	  $(PKG_INSTALL_DIR)/usr/sbin/* \
-	  $(1)/usr/sbin/
+	$(INSTALL_DIR) $(1)/etc
+	$(CP) $(PKG_INSTALL_DIR)/etc/ax25 $(1)/etc/
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(CP) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
+	$(INSTALL_DIR) $(1)/usr/sbin
+	$(CP) $(PKG_INSTALL_DIR)/usr/sbin/* $(1)/usr/sbin/
+	$(INSTALL_DIR) $(1)/var
+	$(CP) $(PKG_INSTALL_DIR)/var/ax25 $(1)/var/
 endef
 
 $(eval $(call BuildPackage,ax25tools))

@@ -1,0 +1,12 @@
+diff --git a/ax25rtd/ax25rtd.c b/ax25rtd/ax25rtd.c
+index d4c8b58..ea1ef86 100644
+--- a/ax25rtd/ax25rtd.c
++++ b/ax25rtd/ax25rtd.c
+@@ -33,6 +33,7 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
++#include <string.h>
+ #include <unistd.h>
+ #include <signal.h>
+ #include <errno.h>

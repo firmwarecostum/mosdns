@@ -1,3 +1,27 @@
+From 7c64255dbcacd83a5e7a71712aeb467a767d078b Mon Sep 17 00:00:00 2001
+From: ve7fet <ve7fet@gmail.com>
+Date: Mon, 20 Oct 2025 21:30:42 -0700
+Subject: [PATCH] Fix includes in listener.c to allow building on Debian
+ Trixie.
+
+---
+ ax25apps/ax25rtd/listener.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/ax25apps/ax25rtd/listener.c b/ax25apps/ax25rtd/listener.c
+index dafd7e2..073944d 100644
+--- a/ax25apps/ax25rtd/listener.c
++++ b/ax25apps/ax25rtd/listener.c
+@@ -29,9 +29,7 @@
+ #include <unistd.h>
+ #include <signal.h>
+ #include <sys/ioctl.h>
+-#ifdef TIME_WITH_SYS_TIME
+ #include <time.h>
+-#endif
+ #include <sys/time.h>
+ #include <netinet/in.h>
+ #include <net/route.h>
 diff --git a/ax25apps/ax25rtd/ax25rtd.c b/ax25apps/ax25rtd/ax25rtd.c
 index d4c8b58..ea1ef86 100644
 --- a/ax25apps/ax25rtd/ax25rtd.c

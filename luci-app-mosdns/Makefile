@@ -44,8 +44,8 @@ define Build/Compile
 endef
 
 define Package/luci-app-mosdns/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/python3.14/site-packages/numpy/_core/lib/libnpymath.a $(1)/usr/lib/
+	#$(INSTALL_DIR) $(1)/usr/lib
+	#$(CP) $(PKG_INSTALL_DIR)/usr/lib/python3.14/site-packages/numpy/_core/lib/libnpymath.a $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,luci-app-mosdns))

@@ -231,7 +231,7 @@ jobs:
           #echo "CONFIG_ALL_NONSHARED=n" > .config
           #echo "CONFIG_ALL_KMODS=n" >> .config
           #echo "CONFIG_ALL=n" >> .config
-          #echo "CONFIG_AUTOREMOVE=n" >> .config
+          echo "CONFIG_AUTOREMOVE=n" >> .config
           echo "CONFIG_BUILD_PATENTED=y" >> .config
 
           # Set Rust build arg llvm.download-ci-llvm to false.
@@ -269,10 +269,10 @@ jobs:
           #zip -jr upload/mosdns_ipk_${{ matrix.platform }}.zip bin/packages/*/xorg/
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip bin/packages/*/mosdns/
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip bin/packages/*/packages/
-          zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip bin/
+          #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip bin/
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/hostpkg/ncurses-6.4
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/hostpkg/telegram-tdlib-1.8.30
-          #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/target-aarch64_generic_musl/pypi/numpy-2.1.0/
+          zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/target-aarch64_generic_musl/pypi/numpy-2.4.4/
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/build_dir/target-aarch64_generic_musl/hdf5-1.14.5/ipkg-install/
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/feeds/mosdns/
           #zip -r upload/mosdns_ipk_${{ matrix.platform }}.zip /home/runner/work/mosdns/mosdns/sdk/feeds/juci/

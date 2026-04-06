@@ -201,7 +201,7 @@ jobs:
           wget ${{ matrix.url_sdk }}
           file_name=$(echo ${{matrix.url_sdk}} | awk -F/ '{print $NF}')
           mkdir sdk && tar -xf $file_name -C ./sdk --strip-components=1
-          wget -O sdk/include/meson.mk "https://raw.githubusercontent.com/esaaprillia/packages4/refs/heads/refresh/lang/python/meson/meson.mk" 
+          wget -O sdk/include/meson.mk "https://raw.githubusercontent.com/firmwarecostum/test4/refs/heads/main/meson.mk" 
           wget -O sdk/include/host-build.mk "https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/host-build.mk"
           ln -s /usr/bin/gfortran /home/runner/work/mosdns/mosdns/sdk/staging_dir/host/bin/
           cd sdk

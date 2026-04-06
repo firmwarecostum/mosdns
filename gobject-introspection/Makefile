@@ -1,42 +1,97 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=python-jax
-PKG_VERSION:=0.9.2
+PKG_NAME:=gobject-introspection
+PKG_VERSION:=1.82.0
 PKG_RELEASE:=1
 
-PYPI_NAME:=jax
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
+PKG_SOURCE_URL:=https://download.gnome.org/sources/$(PKG_NAME)/1.82
 PKG_HASH:=skip
 
 PKG_MAINTAINER:=Esa Aprilia Salsabila <esaapriliasalsabila@gmail.com>
-PKG_LICENSE:=Apache-2.0
-PKG_LICENSE_FILES:=LICENSE
+PKG_LICENSE:=GNU Library General Public License v2 only
+PKG_LICENSE_FILES:=COPYING COPYING.GPL COPYING.LGPL
 
-include ../pypi.mk
+HOST_BUILD_DEPENDS:=glib2/host libffi/host
+PKG_BUILD_DEPENDS:=python3 gobject-introspection/host
+
+PYTHON3_PKG_BUILD:=0
+PKG_BUILD_PARALLEL:=1
+HOST_BUILD_PARALLEL:=1
+PYTHON3_HOST_BUILD:=0
+
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/host-build.mk
-include ../python3-package.mk
-include ../python3-host-build.mk
+include $(INCLUDE_DIR)/meson.mk
+include $(TOPDIR)/feeds/packages/lang/python/python3-package.mk
+include $(TOPDIR)/feeds/packages/lang/python/python3-host-build.mk
 
-define Package/python3-jax
-  SUBMENU:=Python
-  SECTION:=lang
-  CATEGORY:=Languages
-  TITLE:=Transformable numerical computing at scale
-  URL:=https://github.com/jax-ml/jax
-  DEPENDS:= \
-	+python3 \
-	+python3-jaxlib \
-	+python3-ml-dtypes \
-	+python3-numpy \
-	+python3-opt-einsum \
-	+python3-scipy
+define Build/Prepare
+	$(call Build/Prepare/Default)
+	$(CP) $(STAGING_DIR_HOSTPKG)/bin/{g-ir-compiler,g-ir-generate,g-ir-inspect} $(STAGING_DIR)/usr/bin/
+	$(CP) $(STAGING_DIR_HOSTPKG)/bin/{g-ir-scanner,g-ir-annotation-tool} $(STAGING_DIR)/usr/bin/
 endef
 
-define Package/python3-jax/description
-JAX is a Python library for accelerator-oriented array computation and program transformation, designed for high-performance numerical computing and large-scale machine learning.
+define Package/gobject-introspection
+	SECTION:=libs
+	CATEGORY:=Libraries
+	TITLE:=Introspection system for GObject-based libraries
+	DEPENDS:=+glib2 +libffi
+	URL:=https://wiki.gnome.org/action/show/Projects/GObjectIntrospection
 endef
 
+define Package/gobject-introspection/description
+	The goal of the project is to describe the APIs and collect them in a uniform, machine readable format.
+endef
+
+MESON_VARS += $(PYTHON3_VARS)
+
+MESON_HOST_ARGS += \
+	-Dcairo=disabled \
+	-Dgtk_doc=false \
+	-Dbuild_introspection_data=false
+
+MESON_ARGS += \
+	-Dcairo=disabled \
+	-Dgtk_doc=false \
+	-Dgi_cross_use_prebuilt_gi=true \
+	-Dgi_cross_binary_wrapper="$(STAGING_DIR)/usr/bin/g-ir-compiler" \
+	-Dgi_cross_ldd_wrapper="$(STAGING_DIR)/usr/bin/g-ir-scanner"
+
+define Build/InstallDev
+	$(INSTALL_DIR) \
+	  $(1)/usr/include \
+	  $(1)/usr/lib \
+	  $(1)/usr/share
+
+	$(CP) \
+	  $(PKG_INSTALL_DIR)/usr/include/* \
+	  $(1)/usr/
+
+	$(CP) \
+	  $(PKG_INSTALL_DIR)/usr/lib/* \
+	  $(1)/usr/lib/
+
+	$(CP) \
+	  $(PKG_INSTALL_DIR)/usr/share/* \
+	  $(1)/usr/share/
+endef
+
+define Package/gobject-introspection/install
+	$(call Python3/CompileAll,$(PKG_INSTALL_DIR))
+	$(call Python3/DeleteEmptyDirs,$(PKG_INSTALL_DIR))
+	$(INSTALL_DIR) \
+	  $(1)/usr/bin \
+	  $(1)/usr/lib
+
+	$(CP) \
+	  $(PKG_INSTALL_DIR)/usr/bin/* \
+	  $(1)/usr/bin/
+
+	$(CP) \
+	  $(PKG_INSTALL_DIR)/usr/lib/* \
+	  $(1)/usr/lib/
+endef
+
+$(eval $(call BuildPackage,gobject-introspection))
 $(eval $(call HostBuild))
-$(eval $(call Py3Package,python3-jax))
-$(eval $(call BuildPackage,python3-jax))
-$(eval $(call BuildPackage,python3-jax-src))

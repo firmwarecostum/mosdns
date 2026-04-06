@@ -214,6 +214,8 @@ jobs:
           cd sdk
           #sed -i 's|https://git.openwrt.org|git://git.openwrt.org|g' feeds.conf.default
           rm feeds.conf.default
+          rm include/meson.mk
+          wget -O sdk/include/meson.mk "https://raw.githubusercontent.com/esaaprillia/packages4/refs/heads/refresh/lang/python/meson/meson.mk" 
           wget https://raw.githubusercontent.com/esaaprillia/br/refs/heads/main/feeds.conf.default
           echo "src-git mosdns https://github.com/${{ env.mosdns }}.git;v5" >> feeds.conf.default
           #echo "src-git xorg https://github.com/predators46/xorg2 feeds/packages/xorg.git" >> feeds.conf.default

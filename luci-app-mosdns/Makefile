@@ -6,7 +6,7 @@ PKG_RELEASE:=1
 PKG_LICENSE:=GPL-2.0
 
 PKG_MAINTAINER:=
-PKG_BUILD_DEPENDS:=libconfig
+PKG_BUILD_DEPENDS:=srsran
 #PKG_BUILD_DEPENDS:=perl/host perl-encode-locale/host perl-file-listing/host perl-timedate/host perl-html-parser/host perl-html-tagset/host perl-http-message/host perl-clone/host perl-io-html/host perl-http-cookiejar/host perl-http-cookies/host perl-http-daemon/host perl-http-date/host perl-http-negotiate/host perl-lwp-mediatypes/host perl-net-http/host perl-try-tiny/host perl-uri/host perl-www-robotrules/host
 #PKG_BUILD_DEPENDS:=perl-archive-zip perl-crypt-eksblowfish perl-data-dump perl-data-entropy perl-data-uuid perl-date-manip perl-datetime perl-dbd-mysql perl-device-serialport perl-file-slurp perl-image-info perl-io-interface perl-io-socket-multicast perl-json-maybexs perl-libwww perl-lwp-protocol-https perl-mime-lite perl-mime-tools perl-net-sftp-foreign perl-number-bytes-human perl-php-serialization perl-soap-wsdl perl-sys-cpu perl-sys-meminfo perl-sys-mmap perl-uri-encode perl-xml-libxml perl-xml-parser
 #PKG_BUILD_DEPENDS:=perl-sys-mmap/host perl-dbi/host perl-date-manip/host perl-libwww/host

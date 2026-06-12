@@ -221,13 +221,13 @@ jobs:
           echo "src-git-full python https://github.com/esaaprillia/packages4" >> feeds.conf.default
           #echo "src-git-full yfi https://github.com/esaaprillia/yfi" >> feeds.conf.default
           echo "src-git-full node https://github.com/firmwarecostum/openwrt-node-packages" >> feeds.conf.default
-          echo "src-git-full openwrt-passwall2 https://github.com/firmwarecostum/openwrt-passwall2" >> feeds.conf.default
-          echo "src-git-full openwrt-passwall-packages https://github.com/predators46/openwrt-passwall-packages" >> feeds.conf.default
+          echo "src-git-full passwall2 https://github.com/firmwarecostum/openwrt-passwall2.git" >> feeds.conf.default
+          echo "src-git-full passwall https://github.com/predators46/openwrt-passwall-packages.git" >> feeds.conf.default
 
 
           ./scripts/feeds update -a
-          ./scripts/feeds install -a -f -p openwrt-passwall-packages
-          ./scripts/feeds install -a -f -p openwrt-passwall2
+          ./scripts/feeds install -a -f -p passwall
+          ./scripts/feeds install -a -f -p passwall2
           ./scripts/feeds install luci-app-mosdns
 
           #echo "CONFIG_ALL_NONSHARED=n" > .config

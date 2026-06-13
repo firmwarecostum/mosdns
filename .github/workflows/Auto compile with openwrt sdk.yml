@@ -226,6 +226,7 @@ jobs:
 
 
           ./scripts/feeds update -a
+          ./scripts/feeds install -a -f -p python
           ./scripts/feeds install -a -f -p passwall
           ./scripts/feeds install -a -f -p passwall2
           ./scripts/feeds install luci-app-mosdns

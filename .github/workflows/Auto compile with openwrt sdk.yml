@@ -224,6 +224,7 @@ jobs:
 
 
           ./scripts/feeds update -a
+          ./scripts/feeds install -a -f -p node
           ./scripts/feeds install -a -f -p python
           ./scripts/feeds install -a -f -p yfi
           ./scripts/feeds install -a -f -p xorg

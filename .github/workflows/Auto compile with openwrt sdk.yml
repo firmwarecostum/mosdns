@@ -95,7 +95,7 @@ jobs:
       - name: Initialization environment
         if: steps.cache-sdk.outputs.cache-hit != 'true'
         env:
-          url_sdk: https://github.com/esaaprillia/packages/releases/download/glibc/openwrt-sdk-25.12.6-armsr-armv8_gcc-14.3.0_glibc.Linux-x86_64.tar.zst
+          url_sdk: https://github.com/esaaprillia/packages/releases/download/glibc/openwrt-sdk-25.12.6-armsr-armv8_gcc-14.4.0_glibc.Linux-x86_64.tar.zst
         run: |
           wget ${{ env.url_sdk }}
           file_name=$(echo ${{env.url_sdk}} | awk -F/ '{print $NF}')
@@ -181,7 +181,7 @@ jobs:
             url_sdk: https://downloads.openwrt.org/snapshots/targets/armsr/armv8/openwrt-sdk-armsr-armv8_gcc-14.3.0_musl.Linux-x86_64.tar.zst
             
           - platform: ARMSR openwrt-sdk-25.12.6
-            url_sdk: https://github.com/esaaprillia/packages/releases/download/glibc/openwrt-sdk-25.12.6-armsr-armv8_gcc-14.3.0_glibc.Linux-x86_64.tar.zst
+            url_sdk: https://github.com/esaaprillia/packages/releases/download/glibc/openwrt-sdk-25.12.6-armsr-armv8_gcc-14.4.0_glibc.Linux-x86_64.tar.zst
             
           - platform: PI5 openwrt-sdk-25.12.6
             url_sdk: https://downloads.openwrt.org/releases/25.12.6/targets/bcm27xx/bcm2712/openwrt-sdk-25.12.6-bcm27xx-bcm2712_gcc-14.3.0_musl.Linux-x86_64.tar.zst

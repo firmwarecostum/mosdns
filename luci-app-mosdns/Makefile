@@ -16,6 +16,7 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
+include $(TOPDIR)/feeds/python/lang/python/python3-host.mk
 
 define Package/luci-app-mosdns
   SECTION:=net

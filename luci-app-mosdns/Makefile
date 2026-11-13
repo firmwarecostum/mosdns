@@ -49,7 +49,7 @@ endef
 
 define Package/luci-app-mosdns/install
 	#$(INSTALL_DIR) $(1)/usr/lib
-	ls $(HOST_PYTHON3_PKG_DIR)/torch/*
+	ls $(HOST_PYTHON3_PKG_DIR)/torch/* && ls $(STAGING_DIR_HOSTPKG)/*
 endef
 
 $(eval $(call BuildPackage,luci-app-mosdns))

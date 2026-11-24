@@ -25,6 +25,7 @@ jobs:
   job_check:
     name: Check Version
     runs-on: ubuntu-26.04
+    timeout-minutes: 7200
     outputs:
       mosdns_version: ${{ steps.check_version.outputs.latest_version }}
       has_update: ${{ steps.check_version.outputs.has_update }}
@@ -75,6 +76,7 @@ jobs:
     needs: job_check
     if: needs.job_check.outputs.has_update == 'true'
     runs-on: ubuntu-26.04
+    timeout-minutes: 7200
     steps:
       - name: Install packages
         run: |
@@ -169,6 +171,7 @@ jobs:
     if: needs.job_check.outputs.has_update == 'true'
     needs: job_check
     runs-on: ubuntu-26.04
+    timeout-minutes: 7200
     name: build (${{ matrix.platform }})
     strategy:
       fail-fast: false
